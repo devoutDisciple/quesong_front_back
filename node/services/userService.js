@@ -1,13 +1,13 @@
 const resultMessage = require("../util/resultMessage");
 var request = require("request");
-// const Sequelize = require("ssequelize");
+// const Sequelize = require("sequelize");
 // const Op = Sequelize.Op;
 const sequelize = require("../dataSource/MysqlPoolClass");
 const user = require("../models/user");
 const UserModel = user(sequelize);
 
 module.exports = {
-	// 获取书籍种类
+	// 用户登录
 	register: (req, res) => {
 		try {
 			console.log(req.query);
@@ -31,9 +31,13 @@ module.exports = {
 							avatarUrl: avatarUrl,
 						}).then(data => {
 							console.log(data);
-							res.send(resultMessage.success([]));
+							res.send(resultMessage.success({
+								data: openid
+							}));
 						});
-						return res.send(resultMessage.success([]));
+						return res.send(resultMessage.success({
+							data: openid
+						}));
 					});
 		} catch (error) {
 			return resultMessage.error([]);
