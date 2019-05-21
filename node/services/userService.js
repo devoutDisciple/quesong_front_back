@@ -40,7 +40,8 @@ module.exports = {
 						}));
 					});
 		} catch (error) {
-			return resultMessage.error([]);
+			console.log(error);
+			return res.send(resultMessage.error([]));
 		}
 	}
 };

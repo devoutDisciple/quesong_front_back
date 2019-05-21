@@ -11,6 +11,11 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(45),
 			allowNull: false,
 			defaultValue: "学校名称"
+		},
+		is_delete: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true,
+			defaultValue: "1"
 		}
 	}, {
 		tableName: "campus",

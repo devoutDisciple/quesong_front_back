@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
-	return sequelize.define("shop", {
+	return sequelize.define("goods", {
 		id: {
 			type: Sequelize.INTEGER(11),
 			allowNull: false,
@@ -11,35 +11,48 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(45),
 			allowNull: false
 		},
-		type: {
+		url: {
 			type: Sequelize.STRING(45),
 			allowNull: false
+		},
+		desc: {
+			type: Sequelize.STRING(45),
+			allowNull: true
 		},
 		sales: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
 			defaultValue: "0"
 		},
-		desc: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		start_price: {
+		price: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			defaultValue: "0"
 		},
-		send_price: {
+		discount: {
 			type: Sequelize.STRING(45),
-			allowNull: false,
+			allowNull: true,
 			defaultValue: "0"
 		},
-		special: {
+		shopid: {
+			type: Sequelize.STRING(45),
+			allowNull: false
+		},
+		type: {
 			type: Sequelize.STRING(45),
 			allowNull: true
+		},
+		specification: {
+			type: Sequelize.STRING(800),
+			allowNull: true
+		},
+		is_delete: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true,
+			defaultValue: "1"
 		}
 	}, {
-		tableName: "shop",
+		tableName: "goods",
 		timestamps: false
 	});
 };

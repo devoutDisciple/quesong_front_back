@@ -2,13 +2,14 @@ const resultMessage = require("../util/resultMessage");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const sequelize = require("../dataSource/MysqlPoolClass");
-const swiper = require("../models/swiper");
-const SwiperModel = swiper(sequelize);
+const shop = require("../models/shop");
+const ShopModel = shop(sequelize);
 
 module.exports = {
+	// 获取所有商店列表
 	getAll: async (req, res) => {
 		try {
-			let swiper = await SwiperModel.findAll({
+			let swiper = await ShopModel.findAll({
 				where: {
 					is_delete: {
 						[Op.not]: ["2"]
@@ -28,5 +29,20 @@ module.exports = {
 			console.log(error);
 			return res.send(resultMessage.error([]));
 		}
-	}
+	},
+	// 通过id获取制定商店
+	getById: async (req, res) => {
+		let id = req.query.id;
+		try {
+			let shop = await ShopModel.findOne({
+				where: {
+					id: id
+				}
+			});
+			res.send(resultMessage.success(shop));
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
 };

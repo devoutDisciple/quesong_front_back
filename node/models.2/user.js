@@ -4,13 +4,13 @@ module.exports = function(sequelize) {
 	return sequelize.define("user", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: true,
+			allowNull: false,
 			primaryKey: true
 		},
 		openid: {
 			type: Sequelize.STRING(255),
 			allowNull: false,
-			primaryKey: true
+			unique: true
 		},
 		name: {
 			type: Sequelize.STRING(255),
@@ -18,7 +18,7 @@ module.exports = function(sequelize) {
 		},
 		avatarUrl: {
 			type: Sequelize.STRING(255),
-			allowNull: false
+			allowNull: true
 		},
 		phone: {
 			type: Sequelize.STRING(255),
@@ -30,7 +30,7 @@ module.exports = function(sequelize) {
 		},
 		address2: {
 			type: Sequelize.STRING(255),
-			allowNull: true,
+			allowNull: true
 		},
 		address3: {
 			type: Sequelize.STRING(255),
