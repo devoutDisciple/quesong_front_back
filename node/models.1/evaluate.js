@@ -1,31 +1,33 @@
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
-	return sequelize.define("swiper", {
+	return sequelize.define("evaluate", {
 		id: {
 			type: Sequelize.INTEGER(11),
 			allowNull: false,
 			primaryKey: true
 		},
-		url: {
-			type: Sequelize.STRING(255),
+		userid: {
+			type: Sequelize.STRING(45),
 			allowNull: true
 		},
 		shopid: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		sort: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			defaultValue: "0"
+		desc: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		grade: {
+			type: Sequelize.STRING(45),
+			allowNull: true
 		},
 		is_delete: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			defaultValue: "1"
+			type: Sequelize.STRING(45),
+			allowNull: true
 		}
 	}, {
-		tableName: "swiper",
+		tableName: "evaluate",
 		timestamps: false
 	});
 };

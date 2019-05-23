@@ -1,20 +1,19 @@
-/* jshint indent: 2 */
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
 	return sequelize.define("user", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		openid: {
 			type: Sequelize.STRING(255),
-			allowNull: false,
+			allowNull: true,
 			unique: true
 		},
 		name: {
 			type: Sequelize.STRING(255),
-			allowNull: false
+			allowNull: true
 		},
 		avatarUrl: {
 			type: Sequelize.STRING(255),
@@ -35,6 +34,31 @@ module.exports = function(sequelize) {
 		address3: {
 			type: Sequelize.STRING(255),
 			allowNull: true
+		},
+		tolerant_address: {
+			type: Sequelize.STRING(255),
+			allowNull: true
+		},
+		sex: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		campusid: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		floor: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		home: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		is_delete: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true,
+			defaultValue: "1"
 		}
 	}, {
 		tableName: "user",

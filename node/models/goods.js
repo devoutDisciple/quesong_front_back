@@ -1,4 +1,3 @@
-/* jshint indent: 2 */
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
 	return sequelize.define("goods", {
@@ -12,7 +11,7 @@ module.exports = function(sequelize) {
 			allowNull: false
 		},
 		url: {
-			type: Sequelize.STRING(45),
+			type: Sequelize.STRING(255),
 			allowNull: false
 		},
 		desc: {
@@ -30,7 +29,7 @@ module.exports = function(sequelize) {
 			defaultValue: "0"
 		},
 		discount: {
-			type: Sequelize.STRING(45),
+			type: Sequelize.INTEGER(11),
 			allowNull: true,
 			defaultValue: "0"
 		},
@@ -39,6 +38,10 @@ module.exports = function(sequelize) {
 			allowNull: false
 		},
 		type: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		package_cost: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},

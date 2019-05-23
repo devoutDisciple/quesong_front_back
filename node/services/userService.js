@@ -1,5 +1,5 @@
 const resultMessage = require("../util/resultMessage");
-var request = require("request");
+const request = require("request");
 // const Sequelize = require("sequelize");
 // const Op = Sequelize.Op;
 const sequelize = require("../dataSource/MysqlPoolClass");
@@ -39,6 +39,47 @@ module.exports = {
 							data: openid
 						}));
 					});
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
+	// 用户补充收货地址
+	addAddress: (req, res) => {
+		try {
+			let body = req.body, params = {};
+			// 是校内
+			if(req.body.campus) {
+				params = {
+					openid: body.openid,
+					username: body.username,
+					sex: body.sex,
+					phone: body.phone,
+					otherPhone: body.otherPhone,
+					campus: body.campus,
+					floor: body.floor,
+					home: body.home,
+				};
+			}else{
+				params = {
+					openid: body.openid,
+					username: body.username,
+					sex: body.sex,
+					phone: body.phone,
+					otherPhone: body.otherPhone,
+					address: body.address,
+					table: body.table,
+				};
+			}
+			console.log(params, 111);
+			UserModel.update(params, {
+				where: {
+					openid: params.openid,
+				},
+			}).then((res) => {
+				console.log(res, 99);
+			});
+			res.send(resultMessage.success([]));
 		} catch (error) {
 			console.log(error);
 			return res.send(resultMessage.error([]));

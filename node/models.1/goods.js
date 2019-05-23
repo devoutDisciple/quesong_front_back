@@ -1,7 +1,6 @@
-/* jshint indent: 2 */
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
-	return sequelize.define("shop", {
+	return sequelize.define("goods", {
 		id: {
 			type: Sequelize.INTEGER(11),
 			allowNull: false,
@@ -13,44 +12,42 @@ module.exports = function(sequelize) {
 		},
 		url: {
 			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		typeid: {
-			type: Sequelize.INTEGER(11),
-			allowNull: false,
-			defaultValue: "1"
-		},
-		campus: {
-			type: Sequelize.STRING(45),
 			allowNull: false
+		},
+		desc: {
+			type: Sequelize.STRING(45),
+			allowNull: true
 		},
 		sales: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
 			defaultValue: "0"
 		},
-		desc: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		start_price: {
-			type: Sequelize.INTEGER(11),
-			allowNull: false,
-			defaultValue: "0"
-		},
-		send_price: {
-			type: Sequelize.STRING(45),
-			allowNull: false,
-			defaultValue: "0"
-		},
-		special: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		sort: {
+		price: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
-			defaultValue: "1"
+			defaultValue: "0"
+		},
+		discount: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true,
+			defaultValue: "0"
+		},
+		shopid: {
+			type: Sequelize.STRING(45),
+			allowNull: false
+		},
+		type: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		package_cost: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		specification: {
+			type: Sequelize.STRING(800),
+			allowNull: true
 		},
 		is_delete: {
 			type: Sequelize.INTEGER(11),
@@ -58,7 +55,7 @@ module.exports = function(sequelize) {
 			defaultValue: "1"
 		}
 	}, {
-		tableName: "shop",
+		tableName: "goods",
 		timestamps: false
 	});
 };

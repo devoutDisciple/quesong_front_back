@@ -1,22 +1,33 @@
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
-	return sequelize.define("type", {
+	return sequelize.define("order", {
 		id: {
 			type: Sequelize.INTEGER(11),
 			allowNull: false,
 			primaryKey: true
 		},
-		name: {
-			type: Sequelize.STRING(45),
-			allowNull: true,
-			defaultValue: "美食"
-		},
-		url: {
-			type: Sequelize.STRING(255),
+		shopid: {
+			type: Sequelize.INTEGER(11),
 			allowNull: true
 		},
-		sort: {
+		order_list: {
+			type: "BLOB",
+			allowNull: true
+		},
+		desc: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		toal_price: {
 			type: Sequelize.INTEGER(11),
+			allowNull: true
+		},
+		order_time: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		status: {
+			type: Sequelize.STRING(45),
 			allowNull: true,
 			defaultValue: "1"
 		},
@@ -26,7 +37,7 @@ module.exports = function(sequelize) {
 			defaultValue: "1"
 		}
 	}, {
-		tableName: "type",
+		tableName: "order",
 		timestamps: false
 	});
 };
