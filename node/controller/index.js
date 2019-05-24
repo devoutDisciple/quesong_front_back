@@ -5,6 +5,7 @@ const positionController = require("./positionController");
 const shopController = require("./shopController");
 const goodsController = require("./goodsController");
 const payController = require("./payController");
+const orderController = require("./orderController");
 const router = (app) => {
 	// 用户
 	app.use("/user", userController);
@@ -20,5 +21,7 @@ const router = (app) => {
 	app.use("/goods", goodsController);
 	// 支付相关
 	app.use("/pay", payController);
+	// 订单相关
+	app.use("/order", orderController);
 };
 module.exports = router;

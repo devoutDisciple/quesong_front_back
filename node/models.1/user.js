@@ -3,17 +3,17 @@ module.exports = function(sequelize) {
 	return sequelize.define("user", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: true,
+			allowNull: false,
 			primaryKey: true
 		},
 		openid: {
 			type: Sequelize.STRING(255),
-			allowNull: true,
+			allowNull: false,
 			unique: true
 		},
 		name: {
 			type: Sequelize.STRING(255),
-			allowNull: true
+			allowNull: false
 		},
 		avatarUrl: {
 			type: Sequelize.STRING(255),
@@ -43,7 +43,7 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		campusid: {
+		campus: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
@@ -52,6 +52,18 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		home: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		username: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		address: {
+			type: Sequelize.STRING(255),
+			allowNull: true
+		},
+		table: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
