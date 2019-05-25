@@ -3,7 +3,7 @@ module.exports = function(sequelize) {
 	return sequelize.define("evaluate", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		userid: {

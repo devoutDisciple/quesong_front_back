@@ -3,7 +3,7 @@ module.exports = function(sequelize) {
 	return sequelize.define("swiper", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		url: {
@@ -11,6 +11,10 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		shopid: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		campus: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},

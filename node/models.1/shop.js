@@ -3,12 +3,12 @@ module.exports = function(sequelize) {
 	return sequelize.define("shop", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		name: {
 			type: Sequelize.STRING(45),
-			allowNull: false
+			allowNull: true
 		},
 		url: {
 			type: Sequelize.STRING(255),
@@ -16,7 +16,7 @@ module.exports = function(sequelize) {
 		},
 		typeid: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			defaultValue: "1"
 		},
 		address: {
@@ -38,12 +38,12 @@ module.exports = function(sequelize) {
 		},
 		start_price: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			defaultValue: "0"
 		},
 		send_price: {
 			type: Sequelize.STRING(45),
-			allowNull: false,
+			allowNull: true,
 			defaultValue: "0"
 		},
 		special: {

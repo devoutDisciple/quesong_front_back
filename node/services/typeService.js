@@ -12,7 +12,8 @@ module.exports = {
 				where: {
 					is_delete: {
 						[Op.not]: ["2"]
-					}
+					},
+					campus: req.query.position
 				},
 				order: [
 					// will return `name`  DESC 降序  ASC 升序
@@ -28,5 +29,5 @@ module.exports = {
 			console.log(error);
 			return res.send(resultMessage.error([]));
 		}
-	}
+	},
 };

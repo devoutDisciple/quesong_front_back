@@ -3,17 +3,17 @@ module.exports = function(sequelize) {
 	return sequelize.define("user", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		openid: {
 			type: Sequelize.STRING(255),
-			allowNull: false,
+			allowNull: true,
 			unique: true
 		},
 		name: {
 			type: Sequelize.STRING(255),
-			allowNull: false
+			allowNull: true
 		},
 		avatarUrl: {
 			type: Sequelize.STRING(255),

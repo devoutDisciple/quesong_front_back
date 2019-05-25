@@ -1,15 +1,14 @@
-/* jshint indent: 2 */
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
 	return sequelize.define("campus", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		name: {
 			type: Sequelize.STRING(45),
-			allowNull: false,
+			allowNull: true,
 			defaultValue: "学校名称"
 		},
 		is_delete: {

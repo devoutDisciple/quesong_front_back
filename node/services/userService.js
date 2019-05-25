@@ -45,44 +45,75 @@ module.exports = {
 		}
 	},
 	// 用户补充收货地址
-	addAddress: (req, res) => {
+	addAddress: async (req, res) => {
 		try {
-			let body = req.body, params = {};
-			// 是校内
-			if(req.body.campus) {
-				params = {
-					openid: body.openid,
-					username: body.username,
-					sex: body.sex,
-					phone: body.phone,
-					otherPhone: body.otherPhone,
-					campus: body.campus,
-					floor: body.floor,
-					home: body.home,
-				};
-			}else{
-				params = {
-					openid: body.openid,
-					username: body.username,
-					sex: body.sex,
-					phone: body.phone,
-					otherPhone: body.otherPhone,
-					address: body.address,
-					table: body.table,
-				};
+			let body = req.body, params = {
+				openid: body.openid,
+			};
+			let user = await UserModel.findOne({
+				where: {
+					openid: params.openid
+				},
+			});
+			console.log(user);
+			let originAddress = user.address;
+			let newAddress = JSON.parse(body.address);
+			// 如果已有地址
+			if(originAddress) {
+				originAddress = JSON.parse(originAddress);
+				originAddress.map(item => {
+					item.default = false;
+				});
+				newAddress.default = true;
+				originAddress.push(newAddress);
+			} else {
+				// 没有地址
+				params = Object.assign(body, params);
+				newAddress.default = true;
+				originAddress = [newAddress];
 			}
-			console.log(params, 111);
-			UserModel.update(params, {
+			params.address = JSON.stringify(originAddress);
+			await UserModel.update(params, {
 				where: {
 					openid: params.openid,
 				},
-			}).then((res) => {
-				console.log(res, 99);
 			});
 			res.send(resultMessage.success([]));
 		} catch (error) {
 			console.log(error);
 			return res.send(resultMessage.error([]));
 		}
-	}
+	},
+	// 通过openid获取用户信息
+	getUserByOpenid: async (req, res) => {
+		try {
+			let user = await UserModel.findOne({
+				where: {
+					openid: req.query.openid
+				},
+			});
+			res.send(resultMessage.success(user));
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
+	// 更改收货地址
+	updateAddress: async (req, res) => {
+		try {
+			let openid = req.body.openid;
+
+			await UserModel.update({
+				address: req.body.address
+			}, {
+				where: {
+					openid: openid,
+				},
+			});
+			res.send(resultMessage.success([]));
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
 };

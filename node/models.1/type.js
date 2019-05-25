@@ -3,7 +3,7 @@ module.exports = function(sequelize) {
 	return sequelize.define("type", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
 		name: {
@@ -13,6 +13,10 @@ module.exports = function(sequelize) {
 		},
 		url: {
 			type: Sequelize.STRING(255),
+			allowNull: true
+		},
+		campus: {
+			type: Sequelize.STRING(45),
 			allowNull: true
 		},
 		sort: {

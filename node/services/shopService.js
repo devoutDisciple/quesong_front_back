@@ -13,7 +13,8 @@ module.exports = {
 				where: {
 					is_delete: {
 						[Op.not]: ["2"]
-					}
+					},
+					campus: req.query.position
 				},
 				order: [
 					// will return `name`  DESC 降序  ASC 升序
@@ -40,6 +41,26 @@ module.exports = {
 				}
 			});
 			res.send(resultMessage.success(shop));
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
+	// 通过type类型获取商店
+	getShopByType: async (req, res) => {
+		let id = req.query.id;
+		try {
+			let shop = await ShopModel.findAll({
+				where: {
+					typeid: id,
+					campus: req.query.position
+				},
+				order: [
+					// will return `name`  DESC 降序  ASC 升序
+					["sort", "ASC"],
+				]
+			});
+			res.send(resultMessage.success(shop || []));
 		} catch (error) {
 			console.log(error);
 			return res.send(resultMessage.error([]));

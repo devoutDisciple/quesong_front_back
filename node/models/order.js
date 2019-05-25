@@ -8,8 +8,7 @@ module.exports = function(sequelize) {
 		},
 		openid: {
 			type: Sequelize.STRING(255),
-			allowNull: true,
-			unique: true
+			allowNull: true
 		},
 		shop_detail: {
 			type: Sequelize.STRING(500),
@@ -24,6 +23,10 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		total_price: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true
+		},
+		discount_price: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true
 		},

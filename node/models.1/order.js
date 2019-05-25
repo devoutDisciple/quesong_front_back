@@ -3,22 +3,30 @@ module.exports = function(sequelize) {
 	return sequelize.define("order", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: false,
+			allowNull: true,
 			primaryKey: true
 		},
-		shopid: {
-			type: Sequelize.INTEGER(11),
+		openid: {
+			type: Sequelize.STRING(255),
+			allowNull: true
+		},
+		shop_detail: {
+			type: Sequelize.STRING(500),
 			allowNull: true
 		},
 		order_list: {
-			type: "BLOB",
+			type: Sequelize.STRING(10000),
 			allowNull: true
 		},
 		desc: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		toal_price: {
+		total_price: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true
+		},
+		discount_price: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true
 		},
