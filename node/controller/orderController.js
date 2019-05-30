@@ -7,7 +7,7 @@ router.post("/add", (req, res) => {
 	orderService.addOrder(req, res);
 });
 // 获取订单通过openid  getList
-router.get("/getListById", (req, res) => {
+router.get("/getListByOpenid", (req, res) => {
 	orderService.getList(req, res);
 });
 module.exports = router;
