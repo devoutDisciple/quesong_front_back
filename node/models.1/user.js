@@ -23,35 +23,7 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(255),
 			allowNull: true
 		},
-		address1: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		address2: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		address3: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		tolerant_address: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
 		sex: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		campus: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		floor: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		home: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
@@ -60,11 +32,7 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		address: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		table: {
-			type: Sequelize.STRING(45),
+			type: Sequelize.STRING(10000),
 			allowNull: true
 		},
 		is_delete: {

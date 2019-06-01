@@ -15,29 +15,27 @@ module.exports = {
 			let appid = query.appid, AppSecret = query.AppSecret, code = query.code, avatarUrl = query.avatarUrl, name = query.name;
 			request
 				.get(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${AppSecret}&js_code=${code}&grant_type=authorization_code`,
-					async function(error, response, body) {
+					function(error, response, body) {
 						let data = JSON.parse(body), openid = data.openid;
-						console.log(data);
-						console.log(openid);
-						console.log(avatarUrl, name);
-						let user = await UserModel.findOne({
+						UserModel.findOne({
 							where: {
 								openid: openid
 							}
-						});
-						if(!user) return await UserModel.create({
-							openid: openid,
-							name: name,
-							avatarUrl: avatarUrl,
-						}).then(data => {
-							console.log(data);
-							res.send(resultMessage.success({
+						}).then(async (user) => {
+							if(!user) return await UserModel.create({
+								openid: openid,
+								name: name,
+								avatarUrl: avatarUrl,
+							}).then(data => {
+								console.log(data);
+								res.send(resultMessage.success({
+									data: openid
+								}));
+							});
+							return res.send(resultMessage.success({
 								data: openid
 							}));
 						});
-						return res.send(resultMessage.success({
-							data: openid
-						}));
 					});
 		} catch (error) {
 			console.log(error);

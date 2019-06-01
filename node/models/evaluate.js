@@ -6,7 +6,7 @@ module.exports = function(sequelize) {
 			allowNull: true,
 			primaryKey: true
 		},
-		userid: {
+		openid: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
@@ -18,7 +18,11 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		grade: {
+		shop_grade: {
+			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		sender_grade: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},

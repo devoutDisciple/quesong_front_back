@@ -4,8 +4,8 @@ const goods = require("../models/goods");
 const GoodsModel = goods(sequelize);
 
 module.exports = {
-	// 获取同一家商店的所有食物
-	getByShopId: async (req, res) => {
+	// 增加评价
+	addEvaluate: async (req, res) => {
 		let id = req.query.id;
 		try {
 			let goods = await GoodsModel.findAll({
@@ -23,24 +23,4 @@ module.exports = {
 			return res.send(resultMessage.error([]));
 		}
 	},
-	// 增加不同商品的销量
-	addSales: async (req, res) => {
-		let body = req.body;
-		let goodIds = body.goodIds;
-		console.log(goodIds, 888);
-		try {
-			goodIds.map(async (item) => {
-				await GoodsModel.increment(["sales"], {
-					by: item.num,
-					where: {
-						id: item.id
-					}
-				});
-			});
-			return "success";
-		} catch (error) {
-			console.log(error);
-			return res.send(resultMessage.error([]));
-		}
-	}
 };

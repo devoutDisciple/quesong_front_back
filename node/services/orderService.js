@@ -2,15 +2,19 @@ const resultMessage = require("../util/resultMessage");
 const sequelize = require("../dataSource/MysqlPoolClass");
 const order = require("../models/order");
 const orderModel = order(sequelize);
+let ObjectUtil = require("../util/ObjectUtil");
 
 module.exports = {
 	// 增加订单
 	addOrder: async (req, res) => {
 		let body = req.body;
-		console.log(body);
+		let params = ObjectUtil.copy(body);
+		delete params.id;
+		delete params.goodIds;
 		try {
-			await orderModel.create(body);
-			res.send(resultMessage.success([]));
+			await orderModel.create(params);
+			// res.send(resultMessage.success([]));
+			return "success";
 		} catch (error) {
 			console.log(error);
 			return res.send(resultMessage.error([]));
