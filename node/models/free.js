@@ -12,11 +12,7 @@ module.exports = function(sequelize) {
 		},
 		shop_id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: "shop",
-				key: "id"
-			}
+			allowNull: true
 		},
 		campus: {
 			type: Sequelize.STRING(45),
