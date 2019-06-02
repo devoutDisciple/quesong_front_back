@@ -3,7 +3,7 @@ module.exports = function(sequelize) {
 	return sequelize.define("free", {
 		id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: true,
+			allowNull: false,
 			primaryKey: true
 		},
 		goods_id: {
@@ -12,7 +12,11 @@ module.exports = function(sequelize) {
 		},
 		shop_id: {
 			type: Sequelize.INTEGER(11),
-			allowNull: true
+			allowNull: true,
+			references: {
+				model: "shop",
+				key: "id"
+			}
 		},
 		campus: {
 			type: Sequelize.STRING(45),
@@ -20,7 +24,8 @@ module.exports = function(sequelize) {
 		},
 		sort: {
 			type: Sequelize.INTEGER(11),
-			allowNull: true
+			allowNull: true,
+			defaultValue: "1"
 		},
 		total: {
 			type: Sequelize.INTEGER(11),
@@ -32,7 +37,6 @@ module.exports = function(sequelize) {
 			defaultValue: "1"
 		}
 	}, {
-		tableName: "free",
-		timestamps: false
+		tableName: "free"
 	});
 };
