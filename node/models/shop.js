@@ -50,6 +50,10 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(800),
 			allowNull: true
 		},
+		package_cost: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true
+		},
 		start_time: {
 			type: Sequelize.STRING(255),
 			allowNull: true

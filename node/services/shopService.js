@@ -70,7 +70,6 @@ module.exports = {
 	addSales: async (req, res) => {
 		let body = req.body;
 		let id = body.id;
-		console.log(id, 789);
 		try {
 			await ShopModel.increment(["sales"], {
 				where: {

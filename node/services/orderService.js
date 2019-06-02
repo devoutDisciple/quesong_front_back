@@ -43,4 +43,20 @@ module.exports = {
 			return res.send(resultMessage.error([]));
 		}
 	},
+	// 更改订单的状态
+	updateStatus: async (req, res, params) => {
+		// let body = req.body;
+		try {
+			// await evaluateModel.create(body);
+			await orderModel.update({status: params.status}, {
+				where: {
+					id: params.orderid
+				}
+			});
+			res.send(resultMessage.success([]));
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
 };

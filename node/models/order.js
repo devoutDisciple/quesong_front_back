@@ -35,14 +35,12 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		status: {
-			type: Sequelize.STRING(45),
+			type: Sequelize.INTEGER(11),
 			allowNull: true,
-			defaultValue: "1"
 		},
 		is_delete: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
-			defaultValue: "1"
 		}
 	}, {
 		tableName: "order",

@@ -6,11 +6,23 @@ module.exports = function(sequelize) {
 			allowNull: true,
 			primaryKey: true
 		},
+		shopid: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true
+		},
+		orderid: {
+			type: Sequelize.INTEGER(11),
+			allowNull: true
+		},
 		openid: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		shopid: {
+		avatarUrl: {
+			type: Sequelize.STRING(800),
+			allowNull: true
+		},
+		username: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
@@ -26,8 +38,12 @@ module.exports = function(sequelize) {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		is_delete: {
+		create_time: {
 			type: Sequelize.STRING(45),
+			allowNull: true
+		},
+		is_delete: {
+			type: Sequelize.Sequelize.INTEGER(11),
 			allowNull: true
 		}
 	}, {

@@ -27,7 +27,6 @@ module.exports = {
 	addSales: async (req, res) => {
 		let body = req.body;
 		let goodIds = body.goodIds;
-		console.log(goodIds, 888);
 		try {
 			goodIds.map(async (item) => {
 				await GoodsModel.increment(["sales"], {
