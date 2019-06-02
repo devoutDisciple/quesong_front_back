@@ -53,7 +53,10 @@ module.exports = {
 			let shop = await ShopModel.findAll({
 				where: {
 					typeid: id,
-					campus: req.query.position
+					campus: req.query.position,
+					is_delete: {
+						[Op.not]: ["2"]
+					},
 				},
 				order: [
 					// will return `name`  DESC 降序  ASC 升序
@@ -61,6 +64,31 @@ module.exports = {
 				]
 			});
 			res.send(resultMessage.success(shop || []));
+		} catch (error) {
+			console.log(error);
+			return res.send(resultMessage.error([]));
+		}
+	},
+	// 根据关键字模糊搜索商店
+	getShopByName: async (req, res) => {
+		let name = req.query.name;
+		try {
+			let shops = await ShopModel.findAll({
+				where: {
+					name: {
+						[Op.like]: "%" + name + "%"
+					},
+					is_delete: {
+						[Op.not]: ["2"]
+					},
+				}
+			});
+			let result = [];
+			shops.map(item => {
+				result.push(item.dataValues);
+			});
+			console.log(result, 999);
+			res.send(resultMessage.success(result));
 		} catch (error) {
 			console.log(error);
 			return res.send(resultMessage.error([]));

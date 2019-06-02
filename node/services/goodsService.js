@@ -23,6 +23,21 @@ module.exports = {
 			return res.send(resultMessage.error([]));
 		}
 	},
+	// 根据商品id获取商品
+	getByGoodsId: async (req, res) => {
+		let id = req.query.id;
+		try {
+			let goods = await GoodsModel.findOne({
+				where: {
+					id: id
+				}
+			});
+			res.send(resultMessage.success(goods));
+		} catch (error) {
+			console.log(error);
+			return {};
+		}
+	},
 	// 增加不同商品的销量
 	addSales: async (req, res) => {
 		let body = req.body;

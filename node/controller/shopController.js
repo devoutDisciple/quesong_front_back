@@ -14,5 +14,9 @@ router.get("/getById", (req, res) => {
 router.get("/getShopByType", (req, res) => {
 	shopService.getShopByType(req, res);
 });
+// 模糊搜索商店
+router.get("/getShopByName", (req, res) => {
+	shopService.getShopByName(req, res);
+});
 
 module.exports = router;

@@ -1,19 +1,23 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('swiper', {
+  return sequelize.define('free', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
     },
-    url: {
-      type: DataTypes.STRING(255),
+    goods_id: {
+      type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    shopid: {
-      type: DataTypes.STRING(45),
-      allowNull: true
+    shop_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      references: {
+        model: 'shop',
+        key: 'id'
+      }
     },
     campus: {
       type: DataTypes.STRING(45),
@@ -22,7 +26,11 @@ module.exports = function(sequelize, DataTypes) {
     sort: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
-      defaultValue: '0'
+      defaultValue: '1'
+    },
+    total: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
     },
     is_delete: {
       type: DataTypes.INTEGER(11),
@@ -30,6 +38,6 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '1'
     }
   }, {
-    tableName: 'swiper'
+    tableName: 'free'
   });
 };

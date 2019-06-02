@@ -1,49 +1,35 @@
 const Sequelize = require("sequelize");
 module.exports = function(sequelize) {
-	return sequelize.define("order", {
+	return sequelize.define("swiper", {
 		id: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
 			primaryKey: true
 		},
-		openid: {
+		url: {
 			type: Sequelize.STRING(255),
 			allowNull: true
 		},
-		shop_detail: {
-			type: Sequelize.STRING(500),
-			allowNull: true
-		},
-		order_list: {
-			type: Sequelize.STRING(10000),
-			allowNull: true
-		},
-		desc: {
+		shopid: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		total_price: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true
-		},
-		discount_price: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true
-		},
-		order_time: {
+		campus: {
 			type: Sequelize.STRING(45),
 			allowNull: true
 		},
-		status: {
+		sort: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
+			defaultValue: "0"
 		},
 		is_delete: {
 			type: Sequelize.INTEGER(11),
 			allowNull: true,
+			defaultValue: "1"
 		}
 	}, {
-		tableName: "order",
+		tableName: "swiper",
 		timestamps: false
 	});
 };

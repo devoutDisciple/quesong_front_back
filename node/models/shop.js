@@ -1,91 +1,91 @@
-const Sequelize = require("sequelize");
-module.exports = function(sequelize) {
-	return sequelize.define("shop", {
-		id: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			primaryKey: true
-		},
-		name: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		url: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		typeid: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			defaultValue: "1"
-		},
-		address: {
-			type: Sequelize.STRING(500),
-			allowNull: true
-		},
-		campus: {
-			type: Sequelize.STRING(45),
-			allowNull: true,
-			defaultValue: "1"
-		},
-		sales: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true
-		},
-		desc: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		start_price: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			defaultValue: "0"
-		},
-		send_price: {
-			type: Sequelize.STRING(45),
-			allowNull: true,
-			defaultValue: "0"
-		},
-		special: {
-			type: Sequelize.STRING(800),
-			allowNull: true
-		},
-		package_cost: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true
-		},
-		start_time: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		end_time: {
-			type: Sequelize.STRING(255),
-			allowNull: true
-		},
-		username: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		password: {
-			type: Sequelize.STRING(45),
-			allowNull: true
-		},
-		sort: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			defaultValue: "1"
-		},
-		is_delete: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true,
-			defaultValue: "1"
-		},
-		invite: {
-			type: Sequelize.INTEGER(11),
-			allowNull: true
-		}
-	}, {
-		tableName: "shop",
-		timestamps: false
-	});
+/* jshint indent: 2 */
+
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('shop', {
+    id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true
+    },
+    name: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    },
+    url: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    typeid: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      defaultValue: '1'
+    },
+    address: {
+      type: DataTypes.STRING(500),
+      allowNull: true
+    },
+    campus: {
+      type: DataTypes.STRING(45),
+      allowNull: true,
+      defaultValue: '1'
+    },
+    sales: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    desc: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    },
+    start_price: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    send_price: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    special: {
+      type: DataTypes.STRING(800),
+      allowNull: true
+    },
+    start_time: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    end_time: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    username: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    },
+    password: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    },
+    package_cost: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    sort: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      defaultValue: '1'
+    },
+    is_delete: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      defaultValue: '1'
+    },
+    invite: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    }
+  }, {
+    tableName: 'shop'
+  });
 };

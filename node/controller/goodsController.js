@@ -11,4 +11,5 @@ router.post("/addSales", (req, res) => {
 	goodsService.getByShopId(req, res);
 });
 
+
 module.exports = router;
