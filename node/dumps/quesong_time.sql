@@ -16,29 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `campus`
+-- Table structure for table `time`
 --
 
-DROP TABLE IF EXISTS `campus`;
+DROP TABLE IF EXISTS `time`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `campus` (
+CREATE TABLE `time` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL DEFAULT '学校名称',
-  `is_delete` int(11) DEFAULT '1' COMMENT '1 存在 2 删除',
+  `goods_id` int(11) NOT NULL,
+  `shop_id` int(11) NOT NULL,
+  `campus` varchar(45) NOT NULL,
+  `total` int(11) NOT NULL,
+  `sort` int(11) DEFAULT NULL,
+  `start_time` varchar(45) NOT NULL,
+  `end_time` varchar(45) NOT NULL,
+  `is_delete` int(11) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='限时抢购';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `campus`
+-- Dumping data for table `time`
 --
 
-LOCK TABLES `campus` WRITE;
-/*!40000 ALTER TABLE `campus` DISABLE KEYS */;
-INSERT INTO `campus` VALUES (1,'清华大学',1),(2,'北京大学',1),(3,'复旦大学',1),(4,'上海交通大学',1),(5,'浙江大学',1),(6,'上海大学',1),(7,'上海第一大学',1);
-/*!40000 ALTER TABLE `campus` ENABLE KEYS */;
+LOCK TABLES `time` WRITE;
+/*!40000 ALTER TABLE `time` DISABLE KEYS */;
+INSERT INTO `time` VALUES (1,1,1,'清华大学',14,1,'1559318400000','1559750400000',1);
+/*!40000 ALTER TABLE `time` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

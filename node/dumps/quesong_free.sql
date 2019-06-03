@@ -33,7 +33,7 @@ CREATE TABLE `free` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_idx1` (`goods_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='免费霸王餐';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='免费霸王餐';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `free` (
 
 LOCK TABLES `free` WRITE;
 /*!40000 ALTER TABLE `free` DISABLE KEYS */;
-INSERT INTO `free` VALUES (1,3,1,'清华大学',1,50,1);
+INSERT INTO `free` VALUES (1,1,1,'清华大学',1,49,1),(2,2,1,'清华大学',1,30,1),(3,3,1,'清华大学',1,0,1),(4,4,2,'北京大学',2,60,1);
 /*!40000 ALTER TABLE `free` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-03  0:56:54
+-- Dump completed on 2019-06-04  1:32:49

@@ -46,7 +46,7 @@ CREATE TABLE `goods` (
 
 LOCK TABLES `goods` WRITE;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
-INSERT INTO `goods` VALUES (1,'肉末茄子','https://quesong.top/attachment/images/2/2019/05/ToZ63oc5758n77CBzKYNY7kn353J6K.jpeg','好吃的茄子',100,10,75,'1','套餐','1','',1),(2,'腐竹烧肉','https://quesong.top/attachment/images/2/2019/05/aOYv8EX29S4yO8xxM8osv3UVO8IhVO.jpeg','好吃的腐竹烧肉',5,20,100,'1','盖饭','2',NULL,1),(3,'回锅肉','https://quesong.top/attachment/images/2/2019/05/ToZ63oc5758n77CBzKYNY7kn353J6K.jpeg','好吃的回锅肉',111,20,80,'1','套餐','3',NULL,1),(4,'蒜薹肉丝','https://quesong.top/attachment/images/2/2019/05/ToZ63oc5758n77CBzKYNY7kn353J6K.jpeg','nice',31,50,65,'2','盖浇饭','3',NULL,1);
+INSERT INTO `goods` VALUES (1,'肉末茄子','https://quesong.top/attachment/images/2/2019/05/ToZ63oc5758n77CBzKYNY7kn353J6K.jpeg','好吃的茄子',115,10,75,'1','套餐','1','',1),(2,'腐竹烧肉','https://quesong.top/attachment/images/2/2019/05/aOYv8EX29S4yO8xxM8osv3UVO8IhVO.jpeg','好吃的腐竹烧肉',8,20,100,'1','盖饭','2',NULL,1),(3,'回锅肉','https://quesong.top/attachment/images/2/2019/05/ToZ63oc5758n77CBzKYNY7kn353J6K.jpeg','好吃的回锅肉',113,20,80,'1','套餐','3',NULL,1),(4,'蒜薹肉丝','https://quesong.top/attachment/images/2/2019/05/ToZ63oc5758n77CBzKYNY7kn353J6K.jpeg','nice',31,50,65,'2','盖浇饭','3',NULL,1);
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-03  0:56:54
+-- Dump completed on 2019-06-04  1:32:49

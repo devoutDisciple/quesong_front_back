@@ -53,7 +53,7 @@ CREATE TABLE `shop` (
 
 LOCK TABLES `shop` WRITE;
 /*!40000 ALTER TABLE `shop` DISABLE KEYS */;
-INSERT INTO `shop` VALUES (1,'一点点奶茶','https://quesong.top/attachment/images/2/2019/05/jAT1cacd9TeX82Ww2aWA5waiKizE0r.jpeg',2,NULL,'清华大学',61,'好喝的奶茶',60,'3','origin=30,discount=5@@origin=50,discount=8@@origin=100,discount=20',NULL,NULL,NULL,NULL,1,1,1,NULL),(2,'二食堂川湘风情盖浇饭','https://quesong.top/attachment/images/2/2019/05/kPDQAiP3DKE1aUdAEWWKUwEHKdKUad.jpeg',2,NULL,'北京大学',55,'北京大学二食堂',30,'20','origin=50,discount=10@@origin=80,discount=18',NULL,NULL,NULL,NULL,2,1,1,NULL);
+INSERT INTO `shop` VALUES (1,'一点点奶茶','https://quesong.top/attachment/images/2/2019/05/jAT1cacd9TeX82Ww2aWA5waiKizE0r.jpeg',2,NULL,'清华大学',81,'好喝的奶茶',60,'3','origin=30,discount=5@@origin=50,discount=8@@origin=100,discount=20',NULL,NULL,NULL,NULL,1,1,1,NULL),(2,'二食堂川湘风情盖浇饭','https://quesong.top/attachment/images/2/2019/05/kPDQAiP3DKE1aUdAEWWKUwEHKdKUad.jpeg',2,NULL,'北京大学',55,'北京大学二食堂',30,'20','origin=50,discount=10@@origin=80,discount=18',NULL,NULL,NULL,NULL,2,1,1,NULL);
 /*!40000 ALTER TABLE `shop` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -66,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-03  0:56:54
+-- Dump completed on 2019-06-04  1:32:48
