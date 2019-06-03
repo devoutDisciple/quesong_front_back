@@ -2,21 +2,21 @@ const resultMessage = require("../util/resultMessage");
 const sequelize = require("../dataSource/MysqlPoolClass");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
-const free = require("../models/free");
-const freeModel = free(sequelize);
+const time = require("../models/time");
+const timeModel = time(sequelize);
 const shop = require("../models/shop");
 const shopModel = shop(sequelize);
 const goods = require("../models/goods");
 const goodsModel = goods(sequelize);
 
-freeModel.belongsTo(shopModel, { foreignKey: "shop_id", targetKey: "id", as: "shopDetail",});
-freeModel.belongsTo(goodsModel, { foreignKey: "goods_id", targetKey: "id", as: "goodsDetail",});
+timeModel.belongsTo(shopModel, { foreignKey: "shop_id", targetKey: "id", as: "shopDetail",});
+timeModel.belongsTo(goodsModel, { foreignKey: "goods_id", targetKey: "id", as: "goodsDetail",});
 
 module.exports = {
-	// 获取免费霸王餐
-	getFreeGoods: async (req, res) => {
+	// 获取限时抢购商品列表
+	getTimeGoods: async (req, res) => {
 		try {
-			let freeGoods = await freeModel.findAll({
+			let freeGoods = await timeModel.findAll({
 				where: {
 					is_delete: {
 						[Op.not]: ["2"]
@@ -46,11 +46,11 @@ module.exports = {
 		}
 	},
 	// 减少一份免费霸王餐
-	subFreeGoods: async (req, res) => {
+	subTimeGoods: async (req, res) => {
 		try {
 			let id = req.query.id;
 			try {
-				await freeModel.decrement(["total"], {
+				await timeModel.decrement(["total"], {
 					by: 1,
 					where: {
 						id: id

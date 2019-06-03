@@ -6,6 +6,10 @@ const freeService = require("../services/freeService");
 router.get("/getFreeGoods", (req, res) => {
 	freeService.getFreeGoods(req, res);
 });
+// 免费霸王餐的数量减少一份
+router.get("/subFreeGoods", (req, res) => {
+	freeService.subFreeGoods(req, res);
+});
 
 
 module.exports = router;

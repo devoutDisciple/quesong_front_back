@@ -8,6 +8,7 @@ const payController = require("./payController");
 const orderController = require("./orderController");
 const evaluateController = require("./evaluateController");
 const freeController = require("./freeController");
+const timeController = require("./timeController");
 const router = (app) => {
 	// 用户
 	app.use("/user", userController);
@@ -29,5 +30,7 @@ const router = (app) => {
 	app.use("/evaluate", evaluateController);
 	// 免费霸王餐
 	app.use("/free", freeController);
+	// 限时抢购
+	app.use("/time", timeController);
 };
 module.exports = router;

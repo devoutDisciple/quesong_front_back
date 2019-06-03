@@ -7,7 +7,6 @@ let goodService = require("../services/goodsService");
 // 增加订单
 router.post("/add", async (req, res) => {
 	let str = await orderService.addOrder(req, res);
-	console.log(str);
 	if(str == "success") {
 		let goodsExe = await goodService.addSales(req, res);
 		if(goodsExe) {

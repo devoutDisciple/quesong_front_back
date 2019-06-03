@@ -33,6 +33,7 @@ module.exports = function(sequelize) {
 			defaultValue: "1"
 		}
 	}, {
-		tableName: "free"
+		tableName: "free",
+		timestamps: false
 	});
 };
