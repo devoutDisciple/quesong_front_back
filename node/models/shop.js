@@ -37,7 +37,7 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		start_price: {
-			type: Sequelize.INTEGER(11),
+			type: Sequelize.STRING(45),
 			allowNull: true,
 			defaultValue: "0"
 		},
@@ -51,7 +51,7 @@ module.exports = function(sequelize) {
 			allowNull: true
 		},
 		package_cost: {
-			type: Sequelize.INTEGER(11),
+			type: Sequelize.STRING(45),
 			allowNull: true
 		},
 		start_time: {

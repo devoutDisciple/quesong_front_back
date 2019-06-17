@@ -25,6 +25,8 @@ module.exports = {
 				openid: req.query.openid
 			};
 
+
+
 			// 签名算法
 			let sign = PayUtil.createSign(Object.assign(
 				{body: "微信支付，商品详细描述"},
@@ -47,12 +49,14 @@ module.exports = {
 							<sign>${sign}</sign>
 						</xml>`;
 			//发起请求，获取微信支付的一些必要信息
+			console.log(formData);
 			request({
 				url: reqUrl,
 				method: "POST",
 				body: formData
 			}, function(error, response, body) {
 				if(error) {
+					console.log(error);
 					return res.send(resultMessage.success("支付失败"));
 				} else if(!error && response.statusCode == 200) {
 					xml2js.parseString(body,function(err,result){

@@ -22,19 +22,23 @@ module.exports = {
 								openid: openid
 							}
 						}).then(async (user) => {
-							if(!user) return await UserModel.create({
-								openid: openid,
-								name: name,
-								avatarUrl: avatarUrl,
-							}).then(data => {
-								console.log(data);
-								res.send(resultMessage.success({
+							if(!user) {
+								await UserModel.create({
+									openid: openid,
+									name: name,
+									avatarUrl: avatarUrl,
+								}).then(data => {
+									console.log(data);
+									res.send(resultMessage.success({
+										data: openid
+									}));
+								});
+								// return res.send(resultMessage.success([]));
+							}else{
+								return res.send(resultMessage.success({
 									data: openid
 								}));
-							});
-							return res.send(resultMessage.success({
-								data: openid
-							}));
+							}
 						});
 					});
 		} catch (error) {
