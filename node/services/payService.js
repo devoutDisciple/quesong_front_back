@@ -13,7 +13,7 @@ module.exports = {
 				appid: config.appid,	//自己的小程序appid
 				mch_id: config.mch_id,	//自己的商户号
 				nonce_str: PayUtil.getNonceStr(),	//随机字符串
-				body: "贝沃思美食",// 商品描述
+				body: "雀送订餐",// 商品描述
 				out_trade_no: orderid, // 用户订单号
 				total_fee: Number(req.query.total_fee) * 100, //商品价格 单位分
 				spbill_create_ip: "47.106.208.52", // 发起访问ip
