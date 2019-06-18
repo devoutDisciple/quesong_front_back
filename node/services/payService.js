@@ -25,8 +25,6 @@ module.exports = {
 				openid: req.query.openid
 			};
 
-
-
 			// 签名算法
 			let sign = PayUtil.createSign(Object.assign(
 				{body: "微信支付，商品详细描述"},
