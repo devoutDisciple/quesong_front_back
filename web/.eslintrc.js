@@ -1,45 +1,59 @@
 module.exports = {
-	'env': {
-		'browser': true,
-        'es6': true,
-        'node': true
-	},
-	"extends": [
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
         "eslint:recommended",
         "plugin:react/recommended"
     ],
-	'globals': {
-		'Atomics': 'readonly',
-        'SharedArrayBuffer': 'readonly',
-        "Swiper": true
-	},
-	'parserOptions': {
-		'ecmaFeatures': {
-			'jsx': true
-		},
-		'ecmaVersion': 2018,
-		'sourceType': 'module'
-	},
-	'plugins': [
-		'react'
-	],
-	'rules': {
-		'indent': [
-			'error',
-			'tab'
-		],
-		'linebreak-style': [
-			'error',
-			'unix'
-		],
-		'quotes': [
-			'error',
-			'single'
-		],
-		'semi': [
-			'error',
-			'always'
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true,
+            "legacyDecotators": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "settings": {
+        "react": {
+          "version": "16.4.1"
+        }
+      },
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "unix"
         ],
-        'no-console': 0
-	}
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": 0,
+        "smart-tabs": 0,
+        "no-mixed-spaces-and-tabs": 0,
+        "react/prop-types": 0,
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
+    },
+    "globals": {
+        "io": true,
+        "__dirname": true,
+        "process": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+          "legacyDecotators": true
+        }
+    }
 };

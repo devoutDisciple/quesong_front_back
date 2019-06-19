@@ -6,9 +6,10 @@ import config from '../config/config';
 const baseUrl = config.baseUrl;
 import Search from './Search';
 import EditDialog from './EditDialog';
+import {inject, observer} from 'mobx-react';
 
-
-
+@inject('HomeStore')
+@observer
 export default class Book extends React.Component{
 
 	constructor(props) {
